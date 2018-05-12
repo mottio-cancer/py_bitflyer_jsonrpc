@@ -12,13 +12,16 @@ with open('LICENSE') as f:
     license = f.read()
 
 setup(
-    name='sample',
+    name='py_bitflyer_jsonrpc',
+    packages=['py_bitflyer_jsonrpc'],
     version='0.1.0',
-    description='Sample package for Python-Guide.org',
+    description="Python wrapper for bitFlyer's JSON-RPC(WebSocket) API",
     long_description=readme,
-    author='Kenneth Reitz',
-    author_email='me@kennethreitz.com',
-    url='https://github.com/kennethreitz/samplemod',
+    author='Mottio Cancer',
+    author_email='mottio.cancer@gmail.com',
+    url='https://github.com/mottio-cancer/py_bitflyer_jsonrpc',
+    install_requires=['websocket','json','logging']
+    keywords=["bitcoin", "bitflyer", "wrapper", "JSON-RPC API", "websocket"]
     license=license,
     packages=find_packages(exclude=('tests', 'docs'))
 )

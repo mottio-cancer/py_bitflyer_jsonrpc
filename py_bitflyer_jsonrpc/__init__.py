@@ -1,1 +1,1 @@
-from .core import hmm
+from .bitflyer_jsonrpc import BitflyerJSON_RPC

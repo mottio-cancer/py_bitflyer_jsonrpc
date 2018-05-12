@@ -14,13 +14,13 @@ with open('LICENSE') as f:
 setup(
     name='py_bitflyer_jsonrpc',
     packages=['py_bitflyer_jsonrpc'],
-    version='0.1.0',
+    version='0.0.1',
     description="Python wrapper for bitFlyer's JSON-RPC(WebSocket) API",
     long_description=readme,
     author='Mottio Cancer',
     author_email='mottio.cancer@gmail.com',
     url='https://github.com/mottio-cancer/py_bitflyer_jsonrpc',
-    install_requires=['websocket','json','logging'],
+    install_requires=['websocket'],
     keywords=["bitcoin", "bitflyer", "wrapper", "JSON-RPC API", "websocket"],
     license=license
 )

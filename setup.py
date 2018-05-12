@@ -20,7 +20,7 @@ setup(
     author='Mottio Cancer',
     author_email='mottio.cancer@gmail.com',
     url='https://github.com/mottio-cancer/py_bitflyer_jsonrpc',
-    install_requires=['websocket','json','logging']
+    install_requires=['websocket','json','logging'],
     keywords=["bitcoin", "bitflyer", "wrapper", "JSON-RPC API", "websocket"]
     license=license,
     packages=find_packages(exclude=('tests', 'docs'))

@@ -30,6 +30,7 @@ Order Book Infomaition
 ~~~~~~~~~~
 
 .. code:: python
+
   # 現在のオーダー情報のスナップショットを取得します
   # スナップショットは、JSON-RPCを通して配信される更新情報ので、常に最新に更新しています
   snapshot = api.get_board_snapshot()
@@ -38,6 +39,7 @@ Ticker
 ~~~~~~
 
 .. code:: python
+
   # 最新のTicker情報を取得します
   ticker = api.get_ticker()
 

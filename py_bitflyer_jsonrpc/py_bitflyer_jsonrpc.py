@@ -157,7 +157,7 @@ class BitflyerJSON_RPC:
                 for bid in self.data["snapshot"]["bids"]:
                     self.snapshot_bids_dict[bid["price"]] = bid
                 for ask in self.data["snapshot"]["asks"]:
-                    self.snapshot_asks_dict[bid["price"]] = ask
+                    self.snapshot_asks_dict[ask["price"]] = ask
                 
             elif recept_channel == self.channel_board:
                 # 板更新情報

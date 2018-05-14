@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+# coding: utf-8
+
 import websocket
 import threading
 import traceback
@@ -185,8 +187,8 @@ class BitflyerJSON_RPC:
                         else:
                             self.snapshot_asks_dict[re_ask["price"]] = re_ask
                 # 更新したデータを組み立てて、dataテーブルに組み込む
-                self.data["snapshot"]["bids"] = sorted(self.snapshot_bids_dict.items(), key=lambda bid: bid[1]["price"],reverse=True)
-                self.data["snapshot"]["asks"] = sorted(self.snapshot_asks_dict.items(), key=lambda ask: ask[1]["price"],reverse=False)
+                self.data["snapshot"]["bids"] = [i[1] for i in sorted(self.snapshot_bids_dict.items(), key=lambda bid: bid[1]["price"],reverse=True)]
+                self.data["snapshot"]["asks"] = [i[1] for i in sorted(self.snapshot_asks_dict.items(), key=lambda ask: ask[1]["price"],reverse=False)]
 
             elif recept_channel == self.channel_ticker:
                 # Ticker情報

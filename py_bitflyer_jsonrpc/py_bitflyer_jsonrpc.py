@@ -154,6 +154,8 @@ class BitflyerJSON_RPC:
             if recept_channel == self.channel_snapshot:
                 # 板スナップショット
                 self.data["snapshot"] = recept_data
+                self.snapshot_bids_dict.clear()
+                self.snapshot_asks_dict.clear()
                 for bid in self.data["snapshot"]["bids"]:
                     self.snapshot_bids_dict[bid["price"]] = bid
                 for ask in self.data["snapshot"]["asks"]:
@@ -168,14 +170,14 @@ class BitflyerJSON_RPC:
                 self.data["snapshot"]["mid_price"] = recept_data["mid_price"]
                 # bids
                 if len(recept_data["bids"]) > 0 :
-                    for re_bit in recept_data["bids"]:
-                        if re_bit["price"] in self.snapshot_bids_dict.keys():
-                            if re_bit["size"] == 0:
-                                del self.snapshot_bids_dict[re_bit["price"]]
+                    for re_bid in recept_data["bids"]:
+                        if re_bid["price"] in self.snapshot_bids_dict.keys():
+                            if re_bid["size"] == 0:
+                                del self.snapshot_bids_dict[re_bid["price"]]
                             else:
-                                self.snapshot_bids_dict[re_bit["price"]] = re_bit
+                                self.snapshot_bids_dict[re_bid["price"]] = re_bid
                         else:
-                            self.snapshot_bids_dict[re_bit["price"]] = re_bit
+                            self.snapshot_bids_dict[re_bid["price"]] = re_bid
                 # asks
                 if len(recept_data["asks"]) > 0 :
                     for re_ask in recept_data["asks"]:
@@ -228,7 +230,7 @@ class BitflyerJSON_RPC:
             self.logger.error(traceback.format_exc())
 
 if __name__ == '__main__':
-    ex = BitflyerJSON_RPC(symbol='BTCJPY29JUN2018')
+    ex = BitflyerJSON_RPC(symbol='BTC_JPY')
     print("snapshot:{0}".format(ex.get_board_snapshot()['mid_price']))
     print("tiker:{0}".format(ex.get_ticker()))
     print("execution:{0}".format(ex.get_execution()))

@@ -14,7 +14,7 @@ with open('LICENSE') as f:
 setup(
     name='py_bitflyer_jsonrpc',
     packages=['py_bitflyer_jsonrpc'],
-    version='0.0.1',
+    version='0.0.3',
     description="Python wrapper for bitFlyer's JSON-RPC(WebSocket) API",
     long_description=readme,
     author='Mottio Cancer',

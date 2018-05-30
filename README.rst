@@ -21,6 +21,20 @@ Usage
 
   import py_bitflyer_jsonrpc
   api = py_bitflyer_jsonrpc.BitflyerJSON_RPC(symbol=product_code)
+  """
+  or you can select the information you want to enable, as shown below.
+  The default for target_channels is this.
+
+  api = py_bitflyer_jsonrpc.BitflyerJSON_RPC(symbol=product_code,
+                                             target_channels=("board_snapshot", "tickers", "executions"))
+
+  But "board_snapshot" is somewhat large, you may want to not subscribing for resource savings.
+  write that.
+
+  api = py_bitflyer_jsonrpc.BitflyerJSON_RPC(symbol=product_code,
+                                             target_channels=("tickers", "executions"))
+
+  """
 
 
 Example

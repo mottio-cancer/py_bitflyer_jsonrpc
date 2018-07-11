@@ -154,9 +154,12 @@ class BitflyerJSON_RPC:
             
     def __wait_for_first_data(self):
         # 全ての購読の最初のデータが揃うまで待ちます
-        while not set(self.target_channels) <= set(self.data):
-            sleep(0.1)
-
+        if type(self.target_channels) == str:
+            while self.data == {}:
+                sleep(0.1)
+        else:
+            while not set(self.target_channels) <= set(self.data):
+                sleep(0.1)
 
     def __on_close(self, ws):
         '''WebSocketクローズ時の処理'''
